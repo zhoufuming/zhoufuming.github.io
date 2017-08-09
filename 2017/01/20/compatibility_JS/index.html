@@ -1,0 +1,518 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>JS常见的兼容性问题及决解方法 | Web前端开发</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="longchaoan">
+    
+
+    
+    <meta name="description" content="一、event对象
+标准浏览器下直接传入e使用，IE678下不支持直接传入，使用window.event对象解决办法：1var ev = event || window.event
+
+
+二、阻止默认行为
+ev.preventDefault()：标准浏览器下阻止默认行为
+ev.returnValue = false：IE非标准浏览器阻止默认行为解决办法：可以封装一下123456789function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS常见的兼容性问题及决解方法">
+<meta property="og:url" content="http://yoursite.com/2017/01/20/compatibility_JS/index.html">
+<meta property="og:site_name" content="Web前端开发">
+<meta property="og:description" content="一、event对象
+标准浏览器下直接传入e使用，IE678下不支持直接传入，使用window.event对象解决办法：1var ev = event || window.event
+
+
+二、阻止默认行为
+ev.preventDefault()：标准浏览器下阻止默认行为
+ev.returnValue = false：IE非标准浏览器阻止默认行为解决办法：可以封装一下123456789function">
+<meta property="og:updated_time" content="2017-01-20T13:16:42.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS常见的兼容性问题及决解方法">
+<meta name="twitter:description" content="一、event对象
+标准浏览器下直接传入e使用，IE678下不支持直接传入，使用window.event对象解决办法：1var ev = event || window.event
+
+
+二、阻止默认行为
+ev.preventDefault()：标准浏览器下阻止默认行为
+ev.returnValue = false：IE非标准浏览器阻止默认行为解决办法：可以封装一下123456789function">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Web前端开发" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Web前端开发" title="Web前端开发"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Web前端开发">Web前端开发</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">目录</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/01/20/compatibility_JS/" title="JS常见的兼容性问题及决解方法" itemprop="url">JS常见的兼容性问题及决解方法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="longchaoan" target="_blank" itemprop="author">longchaoan</a>
+		
+  <p class="article-time">
+    <time datetime="2017-01-20T11:08:48.122Z" itemprop="datePublished"> Published 2017-01-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<h3 id="一、event对象"><a href="#一、event对象" class="headerlink" title="一、event对象"></a>一、event对象</h3><ul>
+<li>标准浏览器下直接传入e使用，IE678下不支持直接传入，使用window.event对象<br><code>解决办法</code>：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ev = event || <span class="built_in">window</span>.event</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="二、阻止默认行为"><a href="#二、阻止默认行为" class="headerlink" title="二、阻止默认行为"></a>二、阻止默认行为</h3><ul>
+<li>ev.preventDefault()：标准浏览器下阻止默认行为</li>
+<li>ev.returnValue = false：IE非标准浏览器阻止默认行为<br><code>解决办法</code>：可以封装一下<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">preventDefault</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> ev = event || <span class="built_in">window</span>.event;</div><div class="line">	<span class="comment">//判断标准浏览器下是否支持</span></div><div class="line">	<span class="keyword">if</span>(ev.preventDefault)&#123;</div><div class="line">		ev.preventDefault();</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		ev.returnValue = <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="三、阻止冒泡事件"><a href="#三、阻止冒泡事件" class="headerlink" title="三、阻止冒泡事件"></a>三、阻止冒泡事件</h3><ul>
+<li>ev.stopPropagation()：标准浏览器下的处理方法</li>
+<li>ev.cancelBubble=true：IE678下的处理方法<br><code>解决办法</code>：和阻止默认事件一样<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopPropagation</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> ev = event || <span class="built_in">window</span>.event;</div><div class="line">	<span class="keyword">if</span>(ev.stopPropagation)&#123;</div><div class="line">		ev.stopPropagation();</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		ev.cancelBubble = <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="四、addEventListener事件绑定，这个这么好用同样有兼容性问题，天杀的JS"><a href="#四、addEventListener事件绑定，这个这么好用同样有兼容性问题，天杀的JS" class="headerlink" title="四、addEventListener事件绑定，这个这么好用同样有兼容性问题，天杀的JS"></a>四、addEventListener事件绑定，这个这么好用同样有兼容性问题，天杀的JS</h3><ul>
+<li>标准下：addEventListener</li>
+<li>IE下：attachEvent<br><code>解决办法</code>：封装成on()，^_^ 有点像~~JQuery<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//参数：ID，事件类型，执行的函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">on</span>(<span class="params">id, type, fn</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> dom = <span class="built_in">document</span>.getElementById(id);</div><div class="line">	<span class="comment">//如果标准浏览器支持</span></div><div class="line">	<span class="keyword">if</span>(dom.addEventListener )&#123;</div><div class="line">		dom.addEventListener(type, fn, <span class="literal">false</span>);	<span class="comment">//false：表示冒泡事件，true：捕获事件</span></div><div class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(dom.attachEvent)&#123;</div><div class="line">		<span class="comment">//如果支持 --IE</span></div><div class="line">		dom.attachEvent(<span class="string">'on'</span> + type, fn);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###五、getComputedStyle：这个也挺常用的，获取浏览器计算后最终的样式值，但是IE低版本不支持，万恶的IE</p>
+<ul>
+<li>currentStyle：IE低版本使用这个（IE678？忘了~~），总之把兼容写法写上<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//参数：对象，需要获取的属性</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params"> obj, attr </span>)</span>&#123; </div><div class="line">	<span class="comment">//注意：先判断IE，否则IE不认getComputedStyle报错，万恶的IE</span></div><div class="line">	<span class="keyword">return</span> obj.currentStyle?obj.currentStyle[attr] : getComputedStyle( obj )[attr]; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="六、获取滚动条滚动的距离，这个也有兼容性？嗯！还是谷歌浏览器"><a href="#六、获取滚动条滚动的距离，这个也有兼容性？嗯！还是谷歌浏览器" class="headerlink" title="六、获取滚动条滚动的距离，这个也有兼容性？嗯！还是谷歌浏览器"></a>六、获取滚动条滚动的距离，这个也有兼容性？嗯！还是谷歌浏览器</h3><p>document.documentElement.scrollTop：除了谷歌所有浏览器都认<br>document.body.scrollTop：谷歌认的<br><code>解决办法</code>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</div></pre></td></tr></table></figure></p>
+<h3 id="七、浏览器可视区宽度判断"><a href="#七、浏览器可视区宽度判断" class="headerlink" title="七、浏览器可视区宽度判断"></a>七、浏览器可视区宽度判断</h3><p>这个用的不多，做响应式可以用来判断浏览器的宽度。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> clientWidth = <span class="built_in">window</span>.innerWidth || <span class="built_in">document</span>.documentElement.clientWidth || <span class="built_in">document</span>.body.clientWidth || <span class="number">0</span> ;</div></pre></td></tr></table></figure></p>
+<p>总结：JS不兼容的问题就这些吗？当然不是，这些都是是比较常用的，有兴趣的可以将这些封装成一个工具包，开发的时候直接调用。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2017/01/20/compatibility_JS/" data-title="JS常见的兼容性问题及决解方法 | Web前端开发" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/01/26/github_web_html/" title="在github上展示你的静态页面">
+  <strong>上一篇：</strong><br/>
+  <span>
+  在github上展示你的静态页面</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/01/15/css/"  title="IE678下常见的兼容性问题及解决方法">
+ <strong>下一篇：</strong><br/> 
+ <span>IE678下常见的兼容性问题及解决方法
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/01/20/compatibility_JS/" data-title="JS常见的兼容性问题及决解方法" data-url="http://yoursite.com/2017/01/20/compatibility_JS/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、event对象"><span class="toc-number">1.</span> <span class="toc-text">一、event对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、阻止默认行为"><span class="toc-number">2.</span> <span class="toc-text">二、阻止默认行为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、阻止冒泡事件"><span class="toc-number">3.</span> <span class="toc-text">三、阻止冒泡事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、addEventListener事件绑定，这个这么好用同样有兼容性问题，天杀的JS"><span class="toc-number">4.</span> <span class="toc-text">四、addEventListener事件绑定，这个这么好用同样有兼容性问题，天杀的JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、获取滚动条滚动的距离，这个也有兼容性？嗯！还是谷歌浏览器"><span class="toc-number">5.</span> <span class="toc-text">六、获取滚动条滚动的距离，这个也有兼容性？嗯！还是谷歌浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、浏览器可视区宽度判断"><span class="toc-number">6.</span> <span class="toc-text">七、浏览器可视区宽度判断</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="longchaoan" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://github.com/longchaoan" target="_blank" title="Github">Github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://longchaoan.github.io" target="_blank" title="lca&#39;s Blog">lca&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 我们之间的距离或许仅仅只是1px <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5811516668" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/longchaoan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="longchaoan">longchaoan</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"true"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'disqus';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
