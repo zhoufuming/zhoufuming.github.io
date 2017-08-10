@@ -1,0 +1,574 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>LESS&nbps;css的预处理语言</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="zhoufuming">
+    
+    <link rel="alternative" href="/atom.xml" title="Web前端开发" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+    
+      <div id="imglogo">
+        <a href="/"><img src="/img/logo.png" alt="Web前端开发" title="Web前端开发"/></a>
+      </div>
+      
+      <div id="textlogo">
+        <h1 class="site-name"><a href="/" title="Web前端开发">Web前端开发</a></h1>
+        <h2 class="blog-motto"></h2>
+      </div>
+      <div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+      </a></div>
+      <nav class="animated">
+        <ul>
+          <ul>
+           
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archives">目录</a></li>
+          
+          <li>
+          
+          <form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+            <label>Search</label>
+            <input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+            <input type="hidden" name="q" value="site:yoursite.com">
+          </form>
+          
+          </li>
+        </ul>
+      </nav>      
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+  <article itemprop="articleBody"> 
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/08/09/LESS/" title="LESS&nbps;css的预处理语言" itemprop="url">LESS&nbps;css的预处理语言</a>
+  </h1>
+  <p class="article-author">By
+       
+    <a href="https://zhoufuming.github.io" title="zhoufuming" target="_blank" itemprop="author">zhoufuming</a>
+    
+  <p class="article-time">
+    <time datetime="2017-06-01T10:00:00.325Z" itemprop="datePublished"> Published 2017-06-01</time>
+    
+  </p>
+</header>
+  <div class="article-content">
+    
+    <h3>快速入门</h3>
+    <ul>
+      <li>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</li>
+      <li>Less 可以运行在 Node 或浏览器端。</li>
+      <p style="font-size: 14px;">例子：</p>
+      <figure class="highlight javascript">
+        <pre>@base: #f938ab;
+        .box-shadow(@style, @c) when (iscolor(@c)) {
+          -webkit-box-shadow: @style @c;
+          box-shadow:         @style @c;
+        }
+        .box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+          .box-shadow(@style, rgba(0, 0, 0, @alpha));
+        }
+        .box {
+          color: saturate(@base, 5%);
+          border-color: lighten(@base, 30%);
+          div { .box-shadow(0 0 5px, 30%) }
+        }</pre>
+      </figure>
+      <p style="font-size: 14px;">输出：</p>
+      <pre>.box {
+        color: #fe33ac;
+        border-color: #fdcdea;
+      }
+      .box div {
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+      </pre>
+    </ul>
+
+    <h3>使用方法</h3>
+    <ul style="list-style: none; border-left: 4px solid #ddd; padding: 0.5em 2%;">
+      <li>通过npm可以在命令行上使用更少的工具，可以下载为浏览器的脚本文件，也可以在各种第三方工具中使用。</li>
+    </ul>
+
+    <h3>安装</h3>
+    <ul>
+      <li>在服务器上安装较少的最简单的方法是通过npm安装：</li>
+      <figure>$ npm install -g less</figure>
+    </ul>
+
+    <h3>命令行用法</h3>
+    <ul>
+      <li>一旦安装完毕，您就可以从命令行调用编译器了：</li>
+      <figure>$ lessc styles.less</figure>
+      <li>这将输出已编译的CSS到stdout。将CSS结果保存到您选择的文件中：</li>
+      <figure>$ lessc styles.less styles.css</figure>
+      <li>为了减少输出，你可以使用CSS插件。在安装插件时，将使用一个简洁的CSS选项指定一个微型CSS输出:</li>
+      <figure>$ lessc --clean-css styles.less styles.min.css</figure>
+      <li>要查看所有命令行选项，可以不使用参数或查看使用情况。</li>
+    </ul>
+
+    <h3>代码用法</h3>
+    <ul>
+      <li>您可以从节点调用编译器：</li>
+      <figure class="highlight javascript">
+      <pre>var less = require('less');
+
+      less.render('.class { width: (1 + 1) }', function (e, output) {
+        console.log(output.css);
+      });
+      </pre>
+      </figure>
+      <p style="font-size: 14px;">输出：</p>
+<pre>.class {
+  width: 2;
+}
+</pre>
+      <p style="font-size: 18px;">配置</p>
+      <li>您可以向编译器传递一些选项：</li>
+      <figure class="highlight javascript">
+<pre>var less = require('less');
+
+less.render('.class { width: (1 + 1) }',
+    {
+      paths: ['.', './lib'],  // Specify search paths for @import directives
+      filename: 'style.less', // Specify a filename, for better error messages
+      compress: true          // Minify CSS output
+    },
+    function (e, output) {
+       console.log(output.css);
+    });
+</pre>
+      </figure>
+
+    </ul>
+
+    <h3>浏览器端用法</h3>
+    <ul style="list-style: none; border-left: 4px solid #ddd; padding: 0.5em 2%;">
+      <li>使用less.js在浏览器中很适合开发，但不推荐用于生产。</li>
+    </ul>
+    <ul>
+      <li>客户端是最简单的入门方法，它可以更少地开发，但在生产中，当性能和可靠性很重要时，我们建议使用node.js或其中一个可用的第三方工具进行预编译。</li>
+      <li>首先，链接你的 .less 将rel属性设置为 "stylesheet/less" 的样式表：</li>
+      
+      <figure class="highlight javascript">
+<pre>&lt;link rel="stylesheet/less" type="text/css" href="styles.less" /&gt;
+</pre>
+      </figure>
+      <li>接下来,下载 less.js 并将其包含在一个&lt;script&gt; &lt;/script&gt; 标签的 &lt;head&gt; 元素的页面：</li>
+      <figure class="highlight javascript">
+<pre>&lt;script src="less.js" type="text/javascript"&gt;&lg;/script&gt;
+</pre>
+      </figure>
+    </ul>
+
+    <h3>下载</h3>
+    <p><a href="https://raw.github.com/less/less.js/v2.5.3/dist/less.min.js">下载 Less.js v2.5.3</a></p>
+    <p><a href="https://github.com/less/less.js/archive/v2.5.3.zip">下载源代码</a></p>
+    <p><a href="https://github.com/less/less.js.git">访问github上的源代码</a></p>
+    <p style="font-size: 18px;">CDN</p>
+    <ul style="list-style: none; border-left: 4px solid #ddd; padding: 0.5em 2%;">
+      <li><a href="https://github.com/less/less.js.git">&lg;script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"&gt;&lg;/script&gt;</a></li>
+    </ul>
+
+  </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+  <div class="article-share" id="share">
+  
+    <div data-url="http://yoursite.com/2017/01/20/compatibility_JS/" data-title="JS常见的兼容性问题及决解方法 | Web前端开发" data-tsina="null" class="share clearfix">
+    </div>
+  
+  </div>
+
+
+</footer>
+
+           
+  </article>
+  
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/01/26/github_web_html/" title="在github上展示你的静态页面">
+  <strong>上一篇：</strong><br/>
+  <span>
+  在github上展示你的静态页面</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/01/15/css/"  title="IE678下常见的兼容性问题及解决方法">
+ <strong>下一篇：</strong><br/> 
+ <span>IE678下常见的兼容性问题及解决方法
+</span>
+</a>
+</div>
+
+</nav>
+
+  
+<section id="comments" class="comment">
+  <div class="ds-thread" data-thread-key="2017/01/20/compatibility_JS/" data-title="JS常见的兼容性问题及决解方法" data-url="http://yoursite.com/2017/01/20/compatibility_JS/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、event对象"><span class="toc-number">1.</span> <span class="toc-text">一、event对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、阻止默认行为"><span class="toc-number">2.</span> <span class="toc-text">二、阻止默认行为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、阻止冒泡事件"><span class="toc-number">3.</span> <span class="toc-text">三、阻止冒泡事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、addEventListener事件绑定，这个这么好用同样有兼容性问题，天杀的JS"><span class="toc-number">4.</span> <span class="toc-text">四、addEventListener事件绑定，这个这么好用同样有兼容性问题，天杀的JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、获取滚动条滚动的距离，这个也有兼容性？嗯！还是谷歌浏览器"><span class="toc-number">5.</span> <span class="toc-text">六、获取滚动条滚动的距离，这个也有兼容性？嗯！还是谷歌浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、浏览器可视区宽度判断"><span class="toc-number">6.</span> <span class="toc-text">七、浏览器可视区宽度判断</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="zhoufuming" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+              <a href="https://github.com/zhoufuming" target="_blank" title="Github">Github</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="http://zhoufuming.github.io" target="_blank" title="zfm&#39;s Blog">zfm&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+  
+  <div class="line">
+    <span></span>
+    <div class="author"></div>
+  </div>
+  
+  
+  <section class="info">
+    <p>我的代码很长，需要耗尽余生来阅读，你<br>。。。。。。。准备要看了吗
+      </p>
+  </section>
+   
+  <div class="social-font" class="clearfix">
+    
+    <a href="http://weibo.com/p/1005055953560005" target="_blank" class="icon-weibo" title="微博"></a>
+    
+    
+    <a href="https://github.com/zhoufuming" target="_blank" class="icon-github" title="github"></a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+      
+    
+
+    <p class="copyright">
+    Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+    
+    <a href="https://zhoufuming.github.io" target="_blank" title="zhoufuming">zhoufuming</a>
+    
+    
+    </p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"true"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'disqus';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+Analytics Begin
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+Analytics End
+
+Totop Begin
+
+  <div id="totop">
+  <a title="Back to Top"><img src="/img/scrollup.png"/></a>
+  </div>
+  <script src="/js/totop.js"></script>
+
+Totop End
+
+MathJax Begin
+mathjax config similar to math.stackexchange
+
+
+MathJax End
+
+Tiny_search Begin
+
+Tiny_search End
+
+  </body>
+</html>
