@@ -110,14 +110,14 @@
     </ul>
 
     <h3>使用方法</h3>
-    <ul style="border-left: 4px solid #ddd; padding-left: 2%; margin-top: 0.5em;">
+    <ul style="border-left: 4px solid #ddd; padding: 0 2%; margin-top: 0.5em;">
       <li style="list-style: none;">通过npm可以在命令行上使用更少的工具，可以下载为浏览器的脚本文件，也可以在各种第三方工具中使用。</li>
     </ul>
 
     <h3>安装</h3>
     <ul>
       <li>在服务器上安装较少的最简单的方法是通过npm安装：</li>
-      <figure>$ npm install -g less</figure>
+      <figure class="highlight javascript">$ npm install -g less</figure>
     </ul>
 
     <h3>命令行用法</h3>
@@ -141,13 +141,14 @@ less.render('.class { width: (1 + 1) }', function (e, output) {
   console.log(output.css);
 });
       </pre>
-      </figure>
+      
+      </figure class="highlight javascript">
       <p style="font-size: 14px;">输出：</p>
 <pre>.class {
   width: 2;
 }
 </pre>
-      <p style="font-size: 18px;">配置</p>
+      <p style="font-size: 18px; margin-left: -1.5em;">配置</p>
       <li>您可以向编译器传递一些选项：</li>
       <figure class="highlight javascript">
 <pre>var less = require('less');
@@ -167,7 +168,7 @@ less.render('.class { width: (1 + 1) }',
     </ul>
 
     <h3>浏览器端用法</h3>
-    <ul style="border-left: 4px solid #ddd; padding-left: 2%; margin-top: 0.5em;"> 
+    <ul style="border-left: 4px solid #ddd; padding: 0 2%; margin-top: 0.5em;"> 
       <li style="list-style: none;">使用less.js在浏览器中很适合开发，但不推荐用于生产。</li>
     </ul>
     <ul>
@@ -190,7 +191,7 @@ less.render('.class { width: (1 + 1) }',
     <p><a href="https://github.com/less/less.js/archive/v2.5.3.zip">下载源代码</a></p>
     <p><a href="https://github.com/less/less.js.git">通过GitHub克隆或分支</a></p>
     <p style="font-size: 18px;">CDN</p>
-    <ul style="border-left: 4px solid #ddd; padding-left: 2%; margin-top: 0.5em;">
+    <ul style="border-left: 4px solid #ddd; padding: 0 2%; margin-top: 0.5em;">
       <li style="list-style: none;"><a href="https://github.com/less/less.js.git">&lt;script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"&gt;&lt;/script&gt;</a></li>
     </ul>
 
