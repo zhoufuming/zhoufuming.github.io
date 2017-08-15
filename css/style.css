@@ -1295,7 +1295,7 @@ footer.article-footer {
 }
 .hoverqrcode {
   background: #fff;
-  border: 3px solid #2ca6cb;
+  border: 3px solid #000;
   border-radius: 10px;
   display: inline-block;
   position: absolute;
