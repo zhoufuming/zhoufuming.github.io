@@ -208,7 +208,7 @@ var example2 = new Vue({
 
     <h3 id="content_5">条件判断</h3>
     <p>在字符串模板中，如 Handlebars，我们得像这样写一个条件块：</p>
-    <figure class="highlight javascript"><pre><!-- Handlebars 模板 -->
+    <figure class="highlight javascript"><pre>&lt;!-- Handlebars 模板 --&gt;
 {{#if ok}}
   &lt;h1&gt;Yes&lt;/h1&gt;
 {{/if}}</pre></figure>
@@ -217,7 +217,7 @@ var example2 = new Vue({
     <p>也可以用 v-else 添加一个 "else" 块：</p>
     <figure class="highlight javascript"><pre>&lt;h1 v-if="ok"&gt;Yes&lt;/h1&gt;
 &lt;h1 v-else&gt;No&lt;/h1&gt;</pre></figure>
-    <p>因为 v-if 是一个指令，需要将它添加到一个元素上。但是如果我们想切换多个元素呢？此时我们可以把一个 <template> 元素当做包装元素，并在上面使用 v-if，最终的渲染结果不会包含它。</p>
+    <p>因为 v-if 是一个指令，需要将它添加到一个元素上。但是如果我们想切换多个元素呢？此时我们可以把一个 &lt;template&gt; 元素当做包装元素，并在上面使用 v-if，最终的渲染结果不会包含它。</p>
     <figure class="highlight javascript"><pre>&lt;template v-if="ok"&gt;
   &lt;h1>Title&lt;/h1&gt;
   &lt;p&gt;Paragraph 1&lt;/p&gt;
