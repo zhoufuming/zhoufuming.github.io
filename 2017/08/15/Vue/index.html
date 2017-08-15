@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>LESS css的预处理语言</title>
+    <title>Vue.js MVVM框架</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zhoufuming">
@@ -40,7 +40,6 @@
           <ul>
            
             <li><a href="/">首页</a></li>
-          
             <li><a href="/archives">目录</a></li>
           
           <li>
@@ -63,24 +62,26 @@
     <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/08/09/LESS/" title="LESS css的预处理语言" itemprop="url">LESS css的预处理语言</a>
+      <a href="/2017/08/15/Vue/" title="Vue.js MVVM框架" itemprop="url">Vue.js MVVM框架</a>
   </h1>
   <p class="article-author">By
        
     <a href="https://zhoufuming.github.io" title="zhoufuming" target="_blank" itemprop="author">zhoufuming</a>
     
   <p class="article-time">
-    <time datetime="2017-06-01T10:00:00.325Z" itemprop="datePublished"> Published 2017-06-01</time>
+    <time datetime="2017-08-15T10:00:00.325Z" itemprop="datePublished"> Published 2017-08-15</time>
     
   </p>
 </header>
   <div class="article-content">
     
-    <h3 id="content_1">快速入门</h3>
+    <h3 id="content_1">什么是 Vue.js？</h3>
     <ul>
-      <li>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</li>
-      <li>Less 可以运行在 Node 或浏览器端。</li>
-      <p style="font-size: 14px;">例子：</p>
+      <li>Vue.js 是用于构建交互式的 Web 界面的库。</li>
+      <li>Vue.js 提供了 MVVM 数据绑定和一个可组合的组件系统，具有简单、灵活的 API。</li>
+      <img src="/img/vue_js.png" alt="">
+
+      <!-- <p style="font-size: 14px;">例子：</p>
       <figure class="highlight javascript">
         <pre>@base: #f938ab;
 
@@ -106,100 +107,167 @@
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
-      </pre>
+      </pre> -->
     </ul>
 
-    <h3 id="content_2">使用方法</h3>
-    <ul style="border-left: 4px solid #ddd; padding: 0 2%; margin-top: 0.5em;">
-      <li style="list-style: none;">通过npm可以在命令行上使用更少的工具，可以下载为浏览器的脚本文件，也可以在各种第三方工具中使用。</li>
-    </ul>
-
-    <h3 id="content_3">安装</h3>
+    <h3 id="content_2">什么是 Vue.js？</h3>
     <ul>
-      <li>在服务器上安装较少的最简单的方法是通过npm安装：</li>
-      <figure class="highlight javascript">$ npm install -g less</figure>
+      <li><span style="color: #333;">简洁：</span>HTML 模板 + JSON 数据，再创建一个 Vue 实例，就这么简单。</li>
+      <li><span style="color: #333;">数据驱动：</span>自动追踪依赖的模板表达式和计算属性。</li>
+      <li><span style="color: #333;">组件化：</span>用解耦、可复用的组件来构造界面。</li>
+      <li><span style="color: #333;">轻量：</span>~24kb min+gzip，无依赖。</li>
+      <li><span style="color: #333;">快速：</span> 精确有效的异步批量 DOM 更新。</li>
+      <li><span style="color: #333;">模块友好：</span>通过 NPM 或 Bower 安装，无缝融入你的工作流。</li>
     </ul>
-
-    <h3 id="content_4">命令行用法</h3>
+    <p style="font-size: 18px;">如果你喜欢下面这些，那你一定会喜欢 Vue.js：</p>
     <ul>
-      <li>一旦安装完毕，您就可以从命令行调用编译器了：</li>
-      <figure>$ lessc styles.less</figure>
-      <li>这将输出已编译的CSS到stdout。将CSS结果保存到您选择的文件中：</li>
-      <figure>$ lessc styles.less styles.css</figure>
-      <li>为了减少输出，你可以使用CSS插件。在安装插件时，将使用一个简洁的CSS选项指定一个微型CSS输出:</li>
-      <figure>$ lessc --clean-css styles.less styles.min.css</figure>
-      <li>要查看所有命令行选项，可以不使用参数或查看使用情况。</li>
+        <li>可扩展的数据绑定机制</li>
+        <li>原生对象即模型</li>
+        <li>简洁明了的 API</li>
+        <li>组件化 UI 构建</li>
+        <li>多个轻量库搭配使用</li>
     </ul>
 
-    <h3 id="content_5">代码用法</h3>
-    <ul>
-      <li>您可以从节点调用编译器：</li>
-      <figure class="highlight javascript">
-      <pre>var less = require('less');
 
-less.render('.class { width: (1 + 1) }', function (e, output) {
-  console.log(output.css);
-});
-      </pre>
+    <h3 id="content_2">Vue.js 安装</h3>
+    <p>独立版本</p>
+    <p>直接下载并用 &lt;script&gt; 标签引入，Vue 会被注册为一个全局变量。</p>
+    <p>Vue.js 官网下载地址：<a href="http://vuejs.org/guide/installation.html">http://vuejs.org/guide/installation.html</a></p>
+    <figure class="highlight javascript">http://static.runoob.com/assets/vue/1.0.11/vue.min.js</figure>
+    <p style="font-size: 18px;">NPM 安装</p>
+    <p>在用 Vue.js 构建大型应用时推荐使用 NPM 安装:</p>
+    <figure class="highlight javascript"><pre># 最新稳定版本
+$ npm install vue
+# 最新稳定 CSP 兼容版本
+$ npm install vue@csp
+# 开发版本（直接从 GitHub 安装）
+$ npm install vuejs/vue#dev</pre></figure>
+    <p style="font-size: 18px;">Bower 安装</p>
+    <figure class="highlight javascript"><pre># 最新稳定版本
+$ bower install vue</pre></figure>
 
-      </figure class="highlight javascript">
-      <p style="font-size: 14px;">输出：</p>
-<pre>.class {
-  width: 2;
-}
-</pre>
-      <p style="font-size: 18px; margin-left: -1.5em;">配置</p>
-      <li>您可以向编译器传递一些选项：</li>
-      <figure class="highlight javascript">
-<pre>var less = require('less');
 
-less.render('.class { width: (1 + 1) }',
-    {
-      paths: ['.', './lib'],  // Specify search paths for @import directives
-      filename: 'style.less', // Specify a filename, for better error messages
-      compress: true          // Minify CSS output
-    },
-    function (e, output) {
-       console.log(output.css);
-    });
-</pre>
-      </figure>
+    <h3 id="content_3">创建第一个 Vue 应用</h3>
+    <p style="font-size: 18px;">接下来我们创建第一个 Vue 应用。</p>
+    <p>View 层 - HTML 代码如下：</p>
+    <figure class="highlight javascript"><pre><div id="app">
+  {{ message }}
+</div></pre></figure>
+    <p>Model 层 - JavaScript 代码如下(需放在指定的HTML元素之后)：</p>
+    <figure class="highlight javascript"><pre>new Vue({
+    el:'#app',
+    data: {
+        message:'Hello World!'
+    }
+});</pre></figure>
 
-    </ul>
+    <p style="font-size: 18px;">双向数据绑定</p>
+    <p>接下来我们创建一个 view 层 HTML 文件：vueapp.htm，以及 model 层文件：vueapp.js，然后通过 vue.js（使用v-model这个指令）完成中间的底层逻辑，实现绑定的效果。改变其中的任何一层，另外一层都会改变。</p>
+    <p style="font-size: 14px;">vueapp.htm 文件代码：</p>
+    <figure class="highlight javascript"><pre<div id="app">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div></pre></figure>
+    <p style="font-size: 14px;">vueapp.js 文件代码：</p>
+    <figure class="highlight javascript">new Vue({
+  el: '#app',
+  data: {
+    message: '菜鸟教程!'
+  }
+})</pre></figure>
+    <p>以上实例中 {{message}} 会根据输入框 input 的改变而改变，如果你不想让其变化可以修改为：</p>
+    <figure class="highlight javascript"><pre>{{* message }}</pre></figure>
+    <p>同时还支持一些简单的表达式：</p>
+    <figure class="highlight javascript"><pre><!-- 字符串连接 -->
+{{ message + '官网地址：www.runoob.com' }}
+<!-- 字符串反转 -->
+{{ message.split('').reverse().join('') }}</pre></figure>
+    <p style="font-size: 18px;">列表输出</p>
+    <p>列表输出使用 <span style="font-weight: bold;">v-for</span>(v-for取代了1.0以前版本中的v-repeat) 这个指令就能完成:</p>
+    <figure class="highlight javascript"><pre><!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ul>
+</div>
+<script>
+  new Vue({
+  el: '#app',
+  data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue.js' },
+      { text: 'Build Something Awesome' }
+    ]
+  }
+})
+</script>
+</body>
+</html></pre></figure>
+    <p>多维数组实例</p>
+    <figure class="highlight javascript"><pre><div id="app">
+  <ul id="example-2">
+  <li v-for="item in items">
+    {{ parentMessage }} - {{ $index }} - {{ item.message }}
+  </li>
+</ul>
+<script>
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: '菜鸟教程官网',
+    items: [
+      { message: 'www.runoob.com' },
+      { message: 'www.w3cschool.cc' }
+    ]
+  }
+})
+</script></pre></figure>
 
-    <h3 id="content_6">浏览器端用法</h3>
-    <ul style="border-left: 4px solid #ddd; padding: 0 2%; margin-top: 0.5em;"> 
-      <li style="list-style: none;">使用less.js在浏览器中很适合开发，但不推荐用于生产。</li>
-    </ul>
-    <ul>
-      <li>客户端是最简单的入门方法，它可以更少地开发，但在生产中，当性能和可靠性很重要时，我们建议使用node.js或其中一个可用的第三方工具进行预编译。</li>
-      <li>首先，链接你的 .less 将rel属性设置为 "stylesheet/less" 的样式表：</li>
-      
-      <figure class="highlight javascript">
-<pre>&lt;link rel="stylesheet/less" type="text/css" href="styles.less" /&gt;
-</pre>
-      </figure>
-      <li>接下来,下载 less.js 并将其包含在一个&lt;script&gt; &lt;/script&gt; 标签的 &lt;head&gt; 元素的页面：</li>
-      <figure class="highlight javascript">
-<pre>&lt;script src="less.js" type="text/javascript"&gt; &lt; /script&gt;
-</pre>
-      </figure>
-    </ul>
 
-    <h3 id="content_7">下载</h3>
-    <p><a href="https://raw.github.com/less/less.js/v2.5.3/dist/less.min.js">下载 Less.js v2.5.3</a></p>
-    <p><a href="https://github.com/less/less.js/archive/v2.5.3.zip">下载源代码</a></p>
-    <p><a href="https://github.com/less/less.js.git">通过GitHub克隆或分支</a></p>
-    <h3>CDN</h3>
-    <ul>
-       <figure class="highlight javascript">
-<pre>&lt;script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"&gt;&lt;/script&gt;
-</pre>
-      </figure>
-    </ul>
+    <h3 id="content_5">条件判断</h3>
+    <p>在字符串模板中，如 Handlebars，我们得像这样写一个条件块：</p>
+    <figure class="highlight javascript"><pre><!-- Handlebars 模板 -->
+{{#if ok}}
+  <h1>Yes</h1>
+{{/if}}</pre></figure>
+    <p>在 Vue.js，我们使用 v-if 指令实现同样的功能：</p>
+    <figure class="highlight javascript"><pre><h1 v-if="ok">Yes</h1></pre></figure>
+    <p>也可以用 v-else 添加一个 "else" 块：</p>
+    <figure class="highlight javascript"><pre><h1 v-if="ok">Yes</h1>
+<h1 v-else>No</h1></pre></figure>
+    <p>因为 v-if 是一个指令，需要将它添加到一个元素上。但是如果我们想切换多个元素呢？此时我们可以把一个 <template> 元素当做包装元素，并在上面使用 v-if，最终的渲染结果不会包含它。</p>
+    <figure class="highlight javascript"><pre><template v-if="ok">
+  <h1>Title</h1>
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+</template></pre></figure>
+    <p style="font-size: 18px;"></p>
+    <p>v-show作用与v-if类似，不同的是v-show的元素会始终渲染并保持在 DOM 中,且v-show不支持&lt;template&gt;标签。</p>
+    <figure class="highlight javascript"><pre><h1 v-show="ok">Hello!</h1></pre></figure>
 
-    <h3 id="content_8">LESS笔记</h3>
-    <p><a href="https://github.com/zhoufuming/LESS.git">LESS笔记 源码</a></p>
+
+    <h3 id="content_6">过滤器</h3>
+    <p>与Linux中的管道类似，vue.js也使用的是|: </p>
+    <figure class="highlight javascript"><pre>{{message | uppercase}}</pre></figure>
+    <p>这样就能输出message的大写了,过滤器也能串联在一起使用: </p>
+    <figure class="highlight javascript"><pre>{{message | reverse | uppercase}}</pre></figure>
+    <p>这里reverse并不是内建的过滤器，我们可以用Vue.filter自定义: </p>
+    <figure class="highlight javascript"><pre>Vue.filter('reverse', function (value) {
+    return value.split('').reverse().join('')
+})</pre></figure>
+
+    <h3 id="content_7">Vue.js笔记</h3>
+    <p><a href="https://github.com/zhoufuming/Vue.git">Vue.js笔记 源码</a></p>
 
   </div>
     <footer class="article-footer clearfix">
@@ -227,18 +295,10 @@ less.render('.class { width: (1 + 1) }',
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/01/08/js/" title="个人JS学习笔记">
+ <a href="/2017/08/15/LESS/" title="LESS css的预处理语言">
   <strong>上一篇：</strong><br/>
   <span>
-  个人JS学习笔记</span>
-</a>
-</div>
-
-  <div class="next" >
- <a href="/2017/01/15/Vue/" title="Vue.js MVVM框架">
-  <strong>下一篇：</strong><br/>
-  <span>
-  Vue.js MVVM框架</span>
+  LESS css的预处理语言</span>
 </a>
 </div>
 
@@ -263,14 +323,14 @@ less.render('.class { width: (1 + 1) }',
   <strong class="toc-title">Contents</strong>
  
  <ol class="toc">
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_1"><span class="toc-number">1.</span> <span class="toc-text">一、快速入门</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_2"><span class="toc-number">2.</span> <span class="toc-text">二、使用方法</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_3"><span class="toc-number">3.</span> <span class="toc-text">三、安装</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_4"><span class="toc-number">4.</span> <span class="toc-text">四、命令行用法</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_5"><span class="toc-number">4.</span> <span class="toc-text">五、代码用法</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_6"><span class="toc-number">4.</span> <span class="toc-text">六、下载</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_7"><span class="toc-number">5.</span> <span class="toc-text">七、CDN</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_8"><span class="toc-number">6.</span> <span class="toc-text">八、LESS 笔记</span></a></li></ol>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_1"><span class="toc-number">1.</span> <span class="toc-text">什么是 Vue.js？</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_2"><span class="toc-number">2.</span> <span class="toc-text">Vue.js 特点</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_3"><span class="toc-number">3.</span> <span class="toc-text">Vue.js 安装</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_4"><span class="toc-number">4.</span> <span class="toc-text">创建第一个 Vue 应用</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_5"><span class="toc-number">5.</span> <span class="toc-text">条件判断</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_6"><span class="toc-number">6.</span> <span class="toc-text">过滤器</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_7"><span class="toc-number">7.</span> <span class="toc-text">Vue.js笔记</span></a></li>
+  </ol>
  
   </div>
 
@@ -285,9 +345,6 @@ less.render('.class { width: (1 + 1) }',
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
   </div>
-
-
-
   
 
   
