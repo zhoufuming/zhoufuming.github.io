@@ -213,7 +213,7 @@ less.render('.class { width: (1 + 1) }',
   <div class="article-share" id="share">
   
     <div data-url="http://yoursite.com/2017/01/20/compatibility_JS/" data-title="JS常见的兼容性问题及决解方法 | Web前端开发" data-tsina="null" class="share clearfix">
-      <img style="z-index: 1;" class="hoverqrcode" src="img/zfmqr.png" alt="">
+      <img style="z-index: 1; " class="hoverqrcode" src="https://zhoufuming.github.io/img/zfmqr.png" alt="">
     </div>
   
   </div>
@@ -437,7 +437,6 @@ $(document).ready(function(){
       tsina = $this.attr('data-tsina'),
       description = $this.attr('description');
   var html = [
-  '<div class="hoverqrcode clearfix"></div>',
   '<a class="overlay" id="qrcode"></a>',
   '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
   '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
