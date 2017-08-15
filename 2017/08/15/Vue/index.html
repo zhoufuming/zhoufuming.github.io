@@ -122,9 +122,9 @@ $ bower install vue</pre></figure>
     <h3 id="content_3">创建第一个 Vue 应用</h3>
     <p style="font-size: 18px;">接下来我们创建第一个 Vue 应用。</p>
     <p><span style="font-weight: bold;">View 层</span> - HTML 代码如下：</p>
-    <figure class="highlight javascript"><pre><div id="app">
+    <figure class="highlight javascript"><pre>&lt;div id="app"&gt;
   {{ message }}
-</div></pre></figure>
+&lt;/div&gt;</pre></figure>
     <p><span style="font-weight: bold;">Model 层</span> - JavaScript 代码如下(需放在指定的HTML元素之后)：</p>
     <figure class="highlight javascript"><pre>new Vue({
     el:'#app',
@@ -136,10 +136,10 @@ $ bower install vue</pre></figure>
     <p style="font-size: 18px;">双向数据绑定</p>
     <p>接下来我们创建一个 view 层 HTML 文件：vueapp.htm，以及 model 层文件：vueapp.js，然后通过 vue.js（使用v-model这个指令）完成中间的底层逻辑，实现绑定的效果。改变其中的任何一层，另外一层都会改变。</p>
     <p style="font-size: 14px;">vueapp.htm 文件代码：</p>
-    <figure class="highlight javascript"><pre><div id="app">
-  <p>{{ message }}</p>
-  <input v-model="message">
-</div></pre></figure>
+    <figure class="highlight javascript"><pre>&lt;div id="app"&gt;
+  &lt;p&gt;{{ message }}&lt;/p&gt;
+  &lt;input v-model="message"&gt;
+&lt;/div&gt;</pre></figure>
     <p style="font-size: 14px;">vueapp.js 文件代码：</p>
     <figure class="highlight javascript">new Vue({
   el: '#app',
@@ -156,22 +156,22 @@ $ bower install vue</pre></figure>
 {{ message.split('').reverse().join('') }}</pre></figure>
     <p style="font-size: 18px;">列表输出</p>
     <p>列表输出使用 <span style="font-weight: bold;">v-for</span>(v-for取代了1.0以前版本中的v-repeat) 这个指令就能完成:</p>
-    <figure class="highlight javascript"><pre><!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>index</title>
-<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
-</head>
-<body>
-<div id="app">
-  <ul>
-    <li v-for="todo in todos">
+    <figure class="highlight javascript"><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;index&lt;/title&gt;
+&lt;script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"&gt; &lt;/script&gt;
+&lt;/head&gt;
+&lt;body>
+&lt;div id="app"&gt;
+  &lt;ul&gt;
+    &lt;li v-for="todo in todos"&gt;
       {{ todo.text }}
-    </li>
-  </ul>
-</div>
-<script>
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;script&gt;
   new Vue({
   el: '#app',
   data: {
@@ -182,17 +182,17 @@ $ bower install vue</pre></figure>
     ]
   }
 })
-</script>
-</body>
-</html></pre></figure>
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></figure>
     <p>多维数组实例</p>
-    <figure class="highlight javascript"><pre><div id="app">
-  <ul id="example-2">
-  <li v-for="item in items">
+    <figure class="highlight javascript"><pre>&lt;div id="app"&gt;
+  &lt;ul id="example-2"&gt;
+  &lt;li v-for="item in items"&gt;
     {{ parentMessage }} - {{ $index }} - {{ item.message }}
-  </li>
-</ul>
-<script>
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
 var example2 = new Vue({
   el: '#example-2',
   data: {
@@ -203,29 +203,29 @@ var example2 = new Vue({
     ]
   }
 })
-</script></pre></figure>
+&lt;/script&gt;</pre></figure>
 
 
     <h3 id="content_5">条件判断</h3>
     <p>在字符串模板中，如 Handlebars，我们得像这样写一个条件块：</p>
     <figure class="highlight javascript"><pre><!-- Handlebars 模板 -->
 {{#if ok}}
-  <h1>Yes</h1>
+  &lt;h1&gt;Yes&lt;/h1&gt;
 {{/if}}</pre></figure>
     <p>在 Vue.js，我们使用 v-if 指令实现同样的功能：</p>
-    <figure class="highlight javascript"><pre><h1 v-if="ok">Yes</h1></pre></figure>
+    <figure class="highlight javascript"><pre>&lt;h1 v-if="ok"&gt;Yes&lt;/h1&gt;</pre></figure>
     <p>也可以用 v-else 添加一个 "else" 块：</p>
-    <figure class="highlight javascript"><pre><h1 v-if="ok">Yes</h1>
-<h1 v-else>No</h1></pre></figure>
+    <figure class="highlight javascript"><pre>&lt;h1 v-if="ok"&gt;Yes&lt;/h1&gt;
+&lt;h1 v-else&gt;No&lt;/h1&gt;</pre></figure>
     <p>因为 v-if 是一个指令，需要将它添加到一个元素上。但是如果我们想切换多个元素呢？此时我们可以把一个 <template> 元素当做包装元素，并在上面使用 v-if，最终的渲染结果不会包含它。</p>
-    <figure class="highlight javascript"><pre><template v-if="ok">
-  <h1>Title</h1>
-  <p>Paragraph 1</p>
-  <p>Paragraph 2</p>
-</template></pre></figure>
+    <figure class="highlight javascript"><pre>&lt;template v-if="ok"&gt;
+  &lt;h1>Title&lt;/h1&gt;
+  &lt;p&gt;Paragraph 1&lt;/p&gt;
+  &lt;p&gt;Paragraph 2&lt;/p&gt;
+&lt;/template&gt;</pre></figure>
     <p style="font-size: 18px;"></p>
     <p>v-show作用与v-if类似，不同的是v-show的元素会始终渲染并保持在 DOM 中,且v-show不支持&lt;template&gt;标签。</p>
-    <figure class="highlight javascript"><pre><h1 v-show="ok">Hello!</h1></pre></figure>
+    <figure class="highlight javascript"><pre>&lt;h1 v-show="ok"&gt;Hello!&lt;/h1&gt;</pre></figure>
 
     <h3 id="content_6">过滤器</h3>
     <p>与Linux中的管道类似，vue.js也使用的是|: </p>
