@@ -80,34 +80,6 @@
       <li>Vue.js 是用于构建交互式的 Web 界面的库。</li>
       <li>Vue.js 提供了 MVVM 数据绑定和一个可组合的组件系统，具有简单、灵活的 API。</li>
       <img src="/img/vue_js.png" alt="">
-
-      <!-- <p style="font-size: 14px;">例子：</p>
-      <figure class="highlight javascript">
-        <pre>@base: #f938ab;
-
-.box-shadow(@style, @c) when (iscolor(@c)) {
-  -webkit-box-shadow: @style @c;
-  box-shadow:         @style @c;
-}
-.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
-  .box-shadow(@style, rgba(0, 0, 0, @alpha));
-}
-.box {
-  color: saturate(@base, 5%);
-  border-color: lighten(@base, 30%);
-  div { .box-shadow(0 0 5px, 30%) }
-}</pre>
-      </figure>
-      <p style="font-size: 14px;">输出：</p>
-      <pre>.box {
-  color: #fe33ac;
-  border-color: #fdcdea;
-}
-.box div {
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-      </pre> -->
     </ul>
 
     <h3 id="content_2">什么是 Vue.js？</h3>
@@ -149,11 +121,11 @@ $ bower install vue</pre></figure>
 
     <h3 id="content_3">创建第一个 Vue 应用</h3>
     <p style="font-size: 18px;">接下来我们创建第一个 Vue 应用。</p>
-    <p>View 层 - HTML 代码如下：</p>
+    <p><span style="font-weight: bold;">View 层</span> - HTML 代码如下：</p>
     <figure class="highlight javascript"><pre><div id="app">
   {{ message }}
 </div></pre></figure>
-    <p>Model 层 - JavaScript 代码如下(需放在指定的HTML元素之后)：</p>
+    <p><span style="font-weight: bold;">Model 层</span> - JavaScript 代码如下(需放在指定的HTML元素之后)：</p>
     <figure class="highlight javascript"><pre>new Vue({
     el:'#app',
     data: {
@@ -164,7 +136,7 @@ $ bower install vue</pre></figure>
     <p style="font-size: 18px;">双向数据绑定</p>
     <p>接下来我们创建一个 view 层 HTML 文件：vueapp.htm，以及 model 层文件：vueapp.js，然后通过 vue.js（使用v-model这个指令）完成中间的底层逻辑，实现绑定的效果。改变其中的任何一层，另外一层都会改变。</p>
     <p style="font-size: 14px;">vueapp.htm 文件代码：</p>
-    <figure class="highlight javascript"><pre<div id="app">
+    <figure class="highlight javascript"><pre><div id="app">
   <p>{{ message }}</p>
   <input v-model="message">
 </div></pre></figure>
@@ -172,14 +144,14 @@ $ bower install vue</pre></figure>
     <figure class="highlight javascript">new Vue({
   el: '#app',
   data: {
-    message: '菜鸟教程!'
+    message: 'zhoufuming'
   }
 })</pre></figure>
     <p>以上实例中 {{message}} 会根据输入框 input 的改变而改变，如果你不想让其变化可以修改为：</p>
     <figure class="highlight javascript"><pre>{{* message }}</pre></figure>
     <p>同时还支持一些简单的表达式：</p>
     <figure class="highlight javascript"><pre><!-- 字符串连接 -->
-{{ message + '官网地址：www.runoob.com' }}
+{{ message + '个人博客：https://zhoufuming.github.io' }}
 <!-- 字符串反转 -->
 {{ message.split('').reverse().join('') }}</pre></figure>
     <p style="font-size: 18px;">列表输出</p>
@@ -188,7 +160,7 @@ $ bower install vue</pre></figure>
 <html>
 <head>
 <meta charset="utf-8">
-<title>菜鸟教程(runoob.com)</title>
+<title>index</title>
 <script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
 </head>
 <body>
@@ -254,7 +226,6 @@ var example2 = new Vue({
     <p style="font-size: 18px;"></p>
     <p>v-show作用与v-if类似，不同的是v-show的元素会始终渲染并保持在 DOM 中,且v-show不支持&lt;template&gt;标签。</p>
     <figure class="highlight javascript"><pre><h1 v-show="ok">Hello!</h1></pre></figure>
-
 
     <h3 id="content_6">过滤器</h3>
     <p>与Linux中的管道类似，vue.js也使用的是|: </p>
@@ -491,7 +462,6 @@ $(document).ready(function(){
   });
 });
 </script>
-
 
 <script type="text/javascript">
 $(document).ready(function(){ 
