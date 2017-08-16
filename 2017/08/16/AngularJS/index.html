@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Vue.js MVVM框架</title>
+    <title>AngularJS JavaScript框架</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zhoufuming,周馥铭">
-    <meta name="keywords" content="Vue.js,个人博客,zhoufuming,周馥铭,github">
+    <meta name="keywords" content="AngularJS,个人博客,zhoufuming,周馥铭,github">
     
     <link rel="alternative" href="/atom.xml" title="Web前端开发" type="application/atom+xml">
     
@@ -63,183 +63,149 @@
     <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/08/15/Vue/" title="Vue.js MVVM框架" itemprop="url">Vue.js MVVM框架</a>
+      <a href="/2017/08/16/AngularJS/" title="AngularJS JavaScript框架" itemprop="url">AngularJS JavaScript框架</a>
   </h1>
   <p class="article-author">By
        
     <a href="https://zhoufuming.github.io" title="zhoufuming" target="_blank" itemprop="author">zhoufuming</a>
     
   <p class="article-time">
-    <time datetime="2017-08-15T10:00:00.325Z" itemprop="datePublished"> Published 2017-08-15</time>
+    <time datetime="2017-08-16T10:00:00.325Z" itemprop="datePublished"> Published 2017-08-16</time>
     
   </p>
 </header>
   <div class="article-content">
     
-    <h3 id="content_1">什么是 Vue.js？</h3>
+    <h3 id="content_1">AngularJS 简介</h3>
     <ul>
-      <li>Vue.js 是用于构建交互式的 Web 界面的库。</li>
-      <li>Vue.js 提供了 MVVM 数据绑定和一个可组合的组件系统，具有简单、灵活的 API。</li>
-      <img src="/img/vue_js.png" alt="">
+      <li>AngularJS 是一个 <span style="font-weight: bold;">JavaScript</span> 框架。它可通过 &lt;script&gt; 标签添加到 HTML 页面。</li>
+      <li>AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。</li>
     </ul>
 
-    <h3 id="content_2">Vue.js 特点</h3>
+    <h3 id="content_2">AngularJS 是一个 JavaScript 框架</h3>
     <ul>
-      <li><span style="color: #333;">简洁：</span>HTML 模板 + JSON 数据，再创建一个 Vue 实例，就这么简单。</li>
-      <li><span style="color: #333;">数据驱动：</span>自动追踪依赖的模板表达式和计算属性。</li>
-      <li><span style="color: #333;">组件化：</span>用解耦、可复用的组件来构造界面。</li>
-      <li><span style="color: #333;">轻量：</span>~24kb min+gzip，无依赖。</li>
-      <li><span style="color: #333;">快速：</span> 精确有效的异步批量 DOM 更新。</li>
-      <li><span style="color: #333;">模块友好：</span>通过 NPM 或 Bower 安装，无缝融入你的工作流。</li>
-    </ul>
-    <p style="font-size: 18px;">如果你喜欢下面这些，那你一定会喜欢 Vue.js：</p>
-    <ul>
-        <li>可扩展的数据绑定机制</li>
-        <li>原生对象即模型</li>
-        <li>简洁明了的 API</li>
-        <li>组件化 UI 构建</li>
-        <li>多个轻量库搭配使用</li>
+      <li>AngularJS 是一个 JavaScript 框架。它是一个以 JavaScript 编写的库。</li>
+      <li>AngularJS 是以一个 JavaScript 文件形式发布的，可通过 script 标签添加到网页中：</li>
+      <figure class="highlight javascript"><pre><script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script></pre></figure>
+      <p>各个 angular.js 版本下载：<a href=" https://github.com/angular/angular.js/releases"> https://github.com/angular/angular.js/releases</a></p>
     </ul>
 
+    <h3 id="content_3">AngularJS 扩展了 HTML</h3>
+    <ul>
+      <li>AngularJS 通过 <span style="font-weight: bold;">ng-directives</span> 扩展了 HTML。</li>
+      <li><span style="font-weight: bold;">ng-app</span> 指令定义一个 AngularJS 应用程序。</li>
+      <li><span style="font-weight: bold;">ng-model</span> 指令把元素值（比如输入域的值）绑定到应用程序。</li>
+      <li><span style="font-weight: bold;">ng-bind</span> 指令把应用程序数据绑定到 HTML 视图。</li>
+      <p><code>AngularJS 实例</code></p>
+      <figure class="highlight javascript"><pre><!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+ 
+<div ng-app="">
+     <p>名字 : <input type="text" ng-model="name"></p>
+     <h1>Hello {{name}}</h1>
+</div>
+ 
+</body>
+</html></pre></figure>
+      </ul>
+      <p>实例讲解：</p>
+      <p>当网页加载完毕，AngularJS 自动开启。</p>
+      <p>ng-app 指令告诉 AngularJS，&lt;div&gt; 元素是 AngularJS 应用程序 的"所有者"。</p>
+      <p>ng-model 指令把输入域的值绑定到应用程序变量 name。</p>
+      <p>ng-bind 指令把应用程序变量 name 绑定到某个段落的 innerHTML。</p>
 
-    <h3 id="content_3">Vue.js 安装</h3>
-    <p>独立版本</p>
-    <p>直接下载并用 &lt;script&gt; 标签引入，Vue 会被注册为一个全局变量。</p>
-    <p>Vue.js 官网下载地址：<a href="http://vuejs.org/guide/installation.html">http://vuejs.org/guide/installation.html</a></p>
-    <figure class="highlight javascript">http://static.runoob.com/assets/vue/1.0.11/vue.min.js</figure>
-    <p style="font-size: 18px;">NPM 安装</p>
-    <p>在用 Vue.js 构建大型应用时推荐使用 NPM 安装:</p>
-    <figure class="highlight javascript"><pre># 最新稳定版本
-$ npm install vue
-# 最新稳定 CSP 兼容版本
-$ npm install vue@csp
-# 开发版本（直接从 GitHub 安装）
-$ npm install vuejs/vue#dev</pre></figure>
-    <p style="font-size: 18px;">Bower 安装</p>
-    <figure class="highlight javascript"><pre># 最新稳定版本
-$ bower install vue</pre></figure>
+
+    <h3 id="content_4">什么是 AngularJS？</h3>
+    <p style="font-size: 18px;">AngularJS 使得开发现代的单一页面应用程序（SPAs：Single Page Applications）变得更加容易。</p>
+    <ul>
+        <li>AngularJS 把应用程序数据绑定到 HTML 元素。</li>
+        <li>AngularJS 可以克隆和重复 HTML 元素。</li>
+        <li>AngularJS 可以隐藏和显示 HTML 元素。</li>
+        <li>AngularJS 可以在 HTML 元素"背后"添加代码。</li>
+        <li>AngularJS 支持输入验证。</li>
+    </ul>
 
 
-    <h3 id="content_4">创建第一个 Vue 应用</h3>
-    <p style="font-size: 18px;">接下来我们创建第一个 Vue 应用。</p>
-    <p><span style="font-weight: bold;">View 层</span> - HTML 代码如下：</p>
-    <figure class="highlight javascript"><pre>&lt;div id="app"&gt;
-  {{ message }}
-&lt;/div&gt;</pre></figure>
-    <p><span style="font-weight: bold;">Model 层</span> - JavaScript 代码如下(需放在指定的HTML元素之后)：</p>
-    <figure class="highlight javascript"><pre>new Vue({
-    el:'#app',
-    data: {
-        message:'Hello World!'
-    }
-});</pre></figure>
+    <h3 id="content_5">AngularJS 指令</h3>
+    <p>正如您所看到的，AngularJS 指令是以 <span style="font-weight: bold;">ng</span> 作为前缀的 HTML 属性。</p>
+    <p><span style="font-weight: bold;">ng-init</span> 指令初始化 AngularJS 应用程序变量。</p>
+    <p><code>AngularJS 实例</code></p>
+    <figure class="highlight javascript">&lt;div ng-app="" ng-init="firstName='John'"&gt;
+ 
+&lt;p&gt;姓名为 &lt;span ng-bind="firstName"&gt; &lt;/span&gt; &lt;/p&gt;
+ 
+&lt;/div&gt;</figure>
+    <p>HTML5 允许扩展的（自制的）属性，以 data- 开头。<br>AngularJS 属性以 ng- 开头，但是您可以使用 data-ng- 来让网页对 HTML5 有效。</p>
+    <p><code>AngularJS 实例</code></p>
+    <figure class="highlight javascript">&lt;div data-ng-app="" data-ng-init="firstName='John'"&gt;
+ 
+&lt;p&gt;姓名为 &lt;span data-ng-bind="firstName"&gt; &lt;/span&gt; &lt;/p&gt;
+ 
+&lt;/div&gt;</figure>
 
-    <p style="font-size: 18px;">双向数据绑定</p>
-    <p>接下来我们创建一个 view 层 HTML 文件：vueapp.htm，以及 model 层文件：vueapp.js，然后通过 vue.js（使用v-model这个指令）完成中间的底层逻辑，实现绑定的效果。改变其中的任何一层，另外一层都会改变。</p>
-    <p style="font-size: 14px;">vueapp.htm 文件代码：</p>
-    <figure class="highlight javascript"><pre>&lt;div id="app"&gt;
-  &lt;p&gt;{{ message }}&lt;/p&gt;
-  &lt;input v-model="message"&gt;
-&lt;/div&gt;</pre></figure>
-    <p style="font-size: 14px;">vueapp.js 文件代码：</p>
-    <figure class="highlight javascript">new Vue({
-  el: '#app',
-  data: {
-    message: 'zhoufuming'
-  }
-})</pre></figure>
-    <p>以上实例中 {{message}} 会根据输入框 input 的改变而改变，如果你不想让其变化可以修改为：</p>
-    <figure class="highlight javascript"><pre>{{* message }}</pre></figure>
-    <p>同时还支持一些简单的表达式：</p>
-    <figure class="highlight javascript"><pre><!-- 字符串连接 -->
-{{ message + '个人博客：https://zhoufuming.github.io' }}
-<!-- 字符串反转 -->
-{{ message.split('').reverse().join('') }}</pre></figure>
-    <p style="font-size: 18px;">列表输出</p>
-    <p>列表输出使用 <span style="font-weight: bold;">v-for</span>(v-for取代了1.0以前版本中的v-repeat) 这个指令就能完成:</p>
-    <figure class="highlight javascript"><pre>&lt;!DOCTYPE html&gt;
+
+    <h3 id="content_6">AngularJS 表达式</h3>
+    <p>AngularJS 表达式写在双大括号内：<span style="font-weight: bold;">{{ expression }}</span>。</p>
+    <p>AngularJS 表达式把数据绑定到 HTML，这与 <span style="font-weight: bold;">ng-bind</span> 指令有异曲同工之妙。</p>
+    <p>AngularJS 将在表达式书写的位置"输出"数据。</p>
+    <p><span style="font-weight: bold;">AngularJS 表达式</span> 很像 <span style="font-weight: bold;">JavaScript 表达式</span>：它们可以包含文字、运算符和变量。</p>
+    <p>实例 {{ 5 + 5 }} 或 {{ firstName + " " + lastName }}</p>
+    <figure class="highlight javascript">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;index&lt;/title&gt;
-&lt;script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"&gt; &lt;/script&gt;
+&lt;script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"&gt;&lt;/script&gt; 
 &lt;/head&gt;
-&lt;body>
-&lt;div id="app"&gt;
-  &lt;ul&gt;
-    &lt;li v-for="todo in todos"&gt;
-      {{ todo.text }}
-    &lt;/li&gt;
-  &lt;/ul&gt;
+&lt;body&gt;
+ 
+&lt;div ng-app=""&gt;
+     &lt;p&gt;我的第一个表达式： {{ 5 + 5 }}&lt;/p&gt;
 &lt;/div&gt;
-&lt;script&gt;
-  new Vue({
-  el: '#app',
-  data: {
-    todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue.js' },
-      { text: 'Build Something Awesome' }
-    ]
-  }
-})
-&lt;/script&gt;
+ 
 &lt;/body&gt;
-&lt;/html&gt;</pre></figure>
-    <p>多维数组实例</p>
-    <figure class="highlight javascript"><pre>&lt;div id="app"&gt;
-  &lt;ul id="example-2"&gt;
-  &lt;li v-for="item in items"&gt;
-    {{ parentMessage }} - {{ $index }} - {{ item.message }}
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;/html&gt;</figure>
+
+    
+    <h3 id="content_7">AngularJS 应用</h3>
+    <p>AngularJS <span style="font-weight: bold;">模块（Module）</span> 定义了 AngularJS 应用。</p>
+    <p>AngularJS <span style="font-weight: bold;">控制器（Controller）</span> 用于控制 AngularJS 应用。</p>
+    <p>AngularJS 将在表达式书写的位置"输出"数据。</p>
+    <p><span style="font-weight: bold;">ng-app</span>指令定义了应用, <span style="font-weight: bold;">ng-controller</span> 定义了控制器。</p>
+    <p><code>AngularJS 实例</code></p>
+    <figure class="highlight javascript">&lt;div ng-app="myApp" ng-controller="myCtrl"&gt;
+ 
+名: &lt;input type="text" ng-model="firstName"&gt;&lt;br&gt;
+姓: &lt;input type="text" ng-model="lastName"&gt;&lt;br&gt;
+&lt;br&gt;
+姓名: {{firstName + " " + lastName}}
+ 
+&lt;/div&gt;
+ 
 &lt;script&gt;
-var example2 = new Vue({
-  el: '#example-2',
-  data: {
-    parentMessage: '菜鸟教程官网',
-    items: [
-      { message: 'www.runoob.com' },
-      { message: 'www.w3cschool.cc' }
-    ]
-  }
-})
-&lt;/script&gt;</pre></figure>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName= "John";
+    $scope.lastName= "Doe";
+});
+&lt;/script&gt;</figure>
+    <p>AngularJS 模块定义应用:</p>
+    <p><code>AngularJS 模块</code></p>
+    <figure class="highlight javascript">var app = angular.module('myApp', []);</figure>
+    <p>AngularJS 控制器控制应用:</p>
+    <p><code>AngularJS 控制器</code></p>
+    <figure class="highlight javascript">app.controller('myCtrl', function($scope) {
+    $scope.firstName= "John";
+    $scope.lastName= "Doe";
+});</figure>
 
-
-    <h3 id="content_5">条件判断</h3>
-    <p>在字符串模板中，如 Handlebars，我们得像这样写一个条件块：</p>
-    <figure class="highlight javascript"><pre>&lt;!-- Handlebars 模板 --&gt;
-{{#if ok}}
-  &lt;h1&gt;Yes&lt;/h1&gt;
-{{/if}}</pre></figure>
-    <p>在 Vue.js，我们使用 v-if 指令实现同样的功能：</p>
-    <figure class="highlight javascript"><pre>&lt;h1 v-if="ok"&gt;Yes&lt;/h1&gt;</pre></figure>
-    <p>也可以用 v-else 添加一个 "else" 块：</p>
-    <figure class="highlight javascript"><pre>&lt;h1 v-if="ok"&gt;Yes&lt;/h1&gt;
-&lt;h1 v-else&gt;No&lt;/h1&gt;</pre></figure>
-    <p>因为 v-if 是一个指令，需要将它添加到一个元素上。但是如果我们想切换多个元素呢？此时我们可以把一个 &lt;template&gt; 元素当做包装元素，并在上面使用 v-if，最终的渲染结果不会包含它。</p>
-    <figure class="highlight javascript"><pre>&lt;template v-if="ok"&gt;
-  &lt;h1>Title&lt;/h1&gt;
-  &lt;p&gt;Paragraph 1&lt;/p&gt;
-  &lt;p&gt;Paragraph 2&lt;/p&gt;
-&lt;/template&gt;</pre></figure>
-    <p style="font-size: 18px;"></p>
-    <p>v-show作用与v-if类似，不同的是v-show的元素会始终渲染并保持在 DOM 中,且v-show不支持&lt;template&gt;标签。</p>
-    <figure class="highlight javascript"><pre>&lt;h1 v-show="ok"&gt;Hello!&lt;/h1&gt;</pre></figure>
-
-    <h3 id="content_6">过滤器</h3>
-    <p>与Linux中的管道类似，vue.js也使用的是|: </p>
-    <figure class="highlight javascript"><pre>{{message | uppercase}}</pre></figure>
-    <p>这样就能输出message的大写了,过滤器也能串联在一起使用: </p>
-    <figure class="highlight javascript"><pre>{{message | reverse | uppercase}}</pre></figure>
-    <p>这里reverse并不是内建的过滤器，我们可以用Vue.filter自定义: </p>
-    <figure class="highlight javascript"><pre>Vue.filter('reverse', function (value) {
-    return value.split('').reverse().join('')
-})</pre></figure>
-
-    <h3 id="content_7">Vue.js笔记</h3>
-    <p><a href="https://github.com/zhoufuming/Vue.git">Vue.js笔记 源码</a></p>
+    
+    <h3 id="content_8">AngularJS笔记</h3>
+    <p><a href="https://github.com/zhoufuming/AngularJS.git">AngularJS笔记 源码</a></p>
 
   </div>
     <footer class="article-footer clearfix">
@@ -267,27 +233,14 @@ var example2 = new Vue({
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/08/09/LESS/" title="LESS css的预处理语言">
+ <a href="/2017/08/15/Vue/" title="Vue.js MVVM框架">
   <strong>上一篇：</strong><br/>
   <span>
-  LESS css的预处理语言</span>
-</a>
-</div>
-
-  <div class="next" >
- <a href="/2017/08/16/AngularJS/" title="AngularJS JavaScript框架">
-  <strong>下一篇：</strong><br/>
-  <span>
-  AngularJS AngularJS JavaScript框架</span>
+  Vue.js MVVM框架</span>
 </a>
 </div>
 
 </nav>
-
-  
-<section id="comments" class="comment">
-  <div class="ds-thread" data-thread-key="2017/01/20/compatibility_JS/" data-title="JS常见的兼容性问题及决解方法" data-url="http://yoursite.com/2017/01/20/compatibility_JS/"></div>
-</section>
 
 
 <section id="comments" class="comment">
@@ -303,13 +256,14 @@ var example2 = new Vue({
   <strong class="toc-title">Contents</strong>
  
  <ol class="toc">
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_1"><span class="toc-number">1.</span> <span class="toc-text">什么是 Vue.js？</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_2"><span class="toc-number">2.</span> <span class="toc-text">Vue.js 特点</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_3"><span class="toc-number">3.</span> <span class="toc-text">Vue.js 安装</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_4"><span class="toc-number">4.</span> <span class="toc-text">创建第一个 Vue 应用</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_5"><span class="toc-number">5.</span> <span class="toc-text">条件判断</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_6"><span class="toc-number">6.</span> <span class="toc-text">过滤器</span></a></li>
-  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_7"><span class="toc-number">7.</span> <span class="toc-text">Vue.js笔记</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_1"><span class="toc-number">1.</span> <span class="toc-text">AngularJS 简介</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_2"><span class="toc-number">2.</span> <span class="toc-text">AngularJS 是一个 JavaScript 框架</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_3"><span class="toc-number">3.</span> <span class="toc-text">AngularJS 扩展了 HTML</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_4"><span class="toc-number">4.</span> <span class="toc-text">什么是 AngularJS？</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_5"><span class="toc-number">5.</span> <span class="toc-text">AngularJS 指令</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_6"><span class="toc-number">6.</span> <span class="toc-text">AngularJS 表达式</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_7"><span class="toc-number">7.</span> <span class="toc-text">AngularJS 应用</span></a></li>
+  <li class="toc-item toc-level-3"><a class="toc-link" href="#content_8"><span class="toc-number">8.</span> <span class="toc-text">AngularJS笔记</span></a></li>
   </ol>
  
   </div>
