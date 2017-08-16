@@ -86,7 +86,7 @@
     <ul>
       <li>AngularJS 是一个 JavaScript 框架。它是一个以 JavaScript 编写的库。</li>
       <li>AngularJS 是以一个 JavaScript 文件形式发布的，可通过 script 标签添加到网页中：</li>
-      <figure class="highlight javascript"><pre><script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script></pre></figure>
+      <figure class="highlight javascript"><pre>&lt;script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"&gt;&lt;/script&gt;</pre></figure>
       <p>各个 angular.js 版本下载：<a href=" https://github.com/angular/angular.js/releases"> https://github.com/angular/angular.js/releases</a></p>
     </ul>
 
@@ -97,21 +97,21 @@
       <li><span style="font-weight: bold;">ng-model</span> 指令把元素值（比如输入域的值）绑定到应用程序。</li>
       <li><span style="font-weight: bold;">ng-bind</span> 指令把应用程序数据绑定到 HTML 视图。</li>
       <p><code>AngularJS 实例</code></p>
-      <figure class="highlight javascript"><pre><!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
-</head>
-<body>
+      <figure class="highlight javascript"><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
  
-<div ng-app="">
-     <p>名字 : <input type="text" ng-model="name"></p>
-     <h1>Hello {{name}}</h1>
-</div>
+&lt;div ng-app=""&gt;
+     &lt;p&gt;名字 : &lt;input type="text" ng-model="name"&gt;&lt;/p&gt;
+     &lt;h1&gt;Hello {{name}}&lt;/h1&gt;
+&lt;/div&gt;
  
-</body>
-</html></pre></figure>
+&lt;/body&gt;
+&lt;/html&gt;</pre></figure>
       </ul>
       <p>实例讲解：</p>
       <p>当网页加载完毕，AngularJS 自动开启。</p>
