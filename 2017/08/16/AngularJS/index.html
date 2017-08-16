@@ -96,7 +96,7 @@
       <li><span style="font-weight: bold;">ng-app</span> 指令定义一个 AngularJS 应用程序。</li>
       <li><span style="font-weight: bold;">ng-model</span> 指令把元素值（比如输入域的值）绑定到应用程序。</li>
       <li><span style="font-weight: bold;">ng-bind</span> 指令把应用程序数据绑定到 HTML 视图。</li>
-      <p><code>AngularJS 实例</code></p>
+      <p><code>AngularJS 实例：</code></p>
       <figure class="highlight javascript"><pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -134,14 +134,14 @@
     <h3 id="content_5">AngularJS 指令</h3>
     <p>正如您所看到的，AngularJS 指令是以 <span style="font-weight: bold;">ng</span> 作为前缀的 HTML 属性。</p>
     <p><span style="font-weight: bold;">ng-init</span> 指令初始化 AngularJS 应用程序变量。</p>
-    <p><code>AngularJS 实例</code></p>
+    <p><code>AngularJS 实例：</code></p>
     <figure class="highlight javascript"><pre>&lt;div ng-app="" ng-init="firstName='John'"&gt;
  
 &lt;p&gt;姓名为 &lt;span ng-bind="firstName"&gt; &lt;/span&gt; &lt;/p&gt;
  
 &lt;/div&gt;</pre></figure>
     <p>HTML5 允许扩展的（自制的）属性，以 data- 开头。<br>AngularJS 属性以 ng- 开头，但是您可以使用 data-ng- 来让网页对 HTML5 有效。</p>
-    <p><code>AngularJS 实例</code></p>
+    <p><code>AngularJS 实例：</code></p>
     <figure class="highlight javascript"><pre>&lt;div data-ng-app="" data-ng-init="firstName='John'"&gt;
  
 &lt;p&gt;姓名为 &lt;span data-ng-bind="firstName"&gt; &lt;/span&gt; &lt;/p&gt;
@@ -176,7 +176,7 @@
     <p>AngularJS <span style="font-weight: bold;">控制器（Controller）</span> 用于控制 AngularJS 应用。</p>
     <p>AngularJS 将在表达式书写的位置"输出"数据。</p>
     <p><span style="font-weight: bold;">ng-app</span>指令定义了应用, <span style="font-weight: bold;">ng-controller</span> 定义了控制器。</p>
-    <p><code>AngularJS 实例</code></p>
+    <p><code>AngularJS 实例：</code></p>
     <figure class="highlight javascript"><pre>&lt;div ng-app="myApp" ng-controller="myCtrl"&gt;
  
 名: &lt;input type="text" ng-model="firstName"&gt;&lt;br&gt;
@@ -194,10 +194,10 @@ app.controller('myCtrl', function($scope) {
 });
 &lt;/script&gt;</pre></figure>
     <p>AngularJS 模块定义应用:</p>
-    <p><code>AngularJS 模块</code></p>
+    <p><code>AngularJS 模块：</code></p>
     <figure class="highlight javascript">var app = angular.module('myApp', []);</figure>
     <p>AngularJS 控制器控制应用:</p>
-    <p><code>AngularJS 控制器</code></p>
+    <p><code>AngularJS 控制器：</code></p>
     <figure class="highlight javascript"><pre>app.controller('myCtrl', function($scope) {
     $scope.firstName= "John";
     $scope.lastName= "Doe";
