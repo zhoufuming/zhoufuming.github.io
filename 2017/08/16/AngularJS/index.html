@@ -135,18 +135,18 @@
     <p>正如您所看到的，AngularJS 指令是以 <span style="font-weight: bold;">ng</span> 作为前缀的 HTML 属性。</p>
     <p><span style="font-weight: bold;">ng-init</span> 指令初始化 AngularJS 应用程序变量。</p>
     <p><code>AngularJS 实例</code></p>
-    <figure class="highlight javascript">&lt;div ng-app="" ng-init="firstName='John'"&gt;
+    <figure class="highlight javascript"><pre>&lt;div ng-app="" ng-init="firstName='John'"&gt;
  
 &lt;p&gt;姓名为 &lt;span ng-bind="firstName"&gt; &lt;/span&gt; &lt;/p&gt;
  
-&lt;/div&gt;</figure>
+&lt;/div&gt;</pre></figure>
     <p>HTML5 允许扩展的（自制的）属性，以 data- 开头。<br>AngularJS 属性以 ng- 开头，但是您可以使用 data-ng- 来让网页对 HTML5 有效。</p>
     <p><code>AngularJS 实例</code></p>
-    <figure class="highlight javascript">&lt;div data-ng-app="" data-ng-init="firstName='John'"&gt;
+    <figure class="highlight javascript"><pre>&lt;div data-ng-app="" data-ng-init="firstName='John'"&gt;
  
 &lt;p&gt;姓名为 &lt;span data-ng-bind="firstName"&gt; &lt;/span&gt; &lt;/p&gt;
  
-&lt;/div&gt;</figure>
+&lt;/div&gt;</pre></figure>
 
 
     <h3 id="content_6">AngularJS 表达式</h3>
@@ -155,7 +155,7 @@
     <p>AngularJS 将在表达式书写的位置"输出"数据。</p>
     <p><span style="font-weight: bold;">AngularJS 表达式</span> 很像 <span style="font-weight: bold;">JavaScript 表达式</span>：它们可以包含文字、运算符和变量。</p>
     <p>实例 {{ 5 + 5 }} 或 {{ firstName + " " + lastName }}</p>
-    <figure class="highlight javascript">&lt;!DOCTYPE html&gt;
+    <figure class="highlight javascript"><pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
@@ -168,7 +168,7 @@
 &lt;/div&gt;
  
 &lt;/body&gt;
-&lt;/html&gt;</figure>
+&lt;/html&gt;</pre></figure>
 
     
     <h3 id="content_7">AngularJS 应用</h3>
@@ -177,7 +177,7 @@
     <p>AngularJS 将在表达式书写的位置"输出"数据。</p>
     <p><span style="font-weight: bold;">ng-app</span>指令定义了应用, <span style="font-weight: bold;">ng-controller</span> 定义了控制器。</p>
     <p><code>AngularJS 实例</code></p>
-    <figure class="highlight javascript">&lt;div ng-app="myApp" ng-controller="myCtrl"&gt;
+    <figure class="highlight javascript"><pre>&lt;div ng-app="myApp" ng-controller="myCtrl"&gt;
  
 名: &lt;input type="text" ng-model="firstName"&gt;&lt;br&gt;
 姓: &lt;input type="text" ng-model="lastName"&gt;&lt;br&gt;
@@ -192,16 +192,16 @@ app.controller('myCtrl', function($scope) {
     $scope.firstName= "John";
     $scope.lastName= "Doe";
 });
-&lt;/script&gt;</figure>
+&lt;/script&gt;</pre></figure>
     <p>AngularJS 模块定义应用:</p>
     <p><code>AngularJS 模块</code></p>
     <figure class="highlight javascript">var app = angular.module('myApp', []);</figure>
     <p>AngularJS 控制器控制应用:</p>
     <p><code>AngularJS 控制器</code></p>
-    <figure class="highlight javascript">app.controller('myCtrl', function($scope) {
+    <figure class="highlight javascript"><pre>app.controller('myCtrl', function($scope) {
     $scope.firstName= "John";
     $scope.lastName= "Doe";
-});</figure>
+});</pre></figure>
 
     
     <h3 id="content_8">AngularJS笔记</h3>
